@@ -8,6 +8,15 @@ boton.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         let number = 0;
         if (btn.id === "syntax"){
+            if (btn.textContent === Bin){
+                
+            } else if (btn.textContent === Oct){
+                
+            } else if (btn.textContent === Hex){
+                
+            } else if (btn.textContent === Hex){
+                
+            }
             result.innerHTML = btn.textContent;
         } else if (btn.textContent === "C"){
             numbers = []

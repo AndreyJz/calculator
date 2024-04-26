@@ -14,13 +14,14 @@ boton.forEach((btn) => {
 
         if (btn.id === "syntax"){
             if (btn.textContent === "Bin"){
-                result.innerHTML = result.textContent.toString(2);
+                result.innerHTML = parseInt(result.textContent).toString(2).toUpperCase();
             } else if (btn.textContent === "Oct"){
-                result.innerHTML = result.textContent.toString(8);
+                result.innerHTML = parseInt(result.textContent).toString(8).toUpperCase();
             } else if (btn.textContent === "Hex"){
-                result.innerHTML = result.textContent.toString(16);
-            } else if (btn.textContent === "Dec"){   
-                result.innerHTML = result.textContent.toString(10);
+                result.innerHTML = parseInt(result.textContent).toString(16).toUpperCase();
+            } else if (btn.textContent === "Dec"){
+                console.log("pepe") 
+                result.innerHTML = parseInt(result.textContent, 2).toString(10).toUpperCase();
             }
         } else if (btn.textContent === "C"){
             numbers = []

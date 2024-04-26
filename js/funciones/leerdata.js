@@ -3,29 +3,31 @@ const boton = document.querySelectorAll("a");
 
 let numbers = [];
 let operation = null;
+let number = 0;
 
 boton.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-        let number = 0;
+
+        if (result.textContent === "0"){
+            result.textContent = "";
+        }
+
         if (btn.id === "syntax"){
             if (btn.textContent === "Bin"){
-                
-            } else if (btn.textContent === Oct){
-                
-            } else if (btn.textContent === Hex){
-                
-            } else if (btn.textContent === Dec){
-                
+                result.innerHTML = result.textContent.toString(2);
+            } else if (btn.textContent === "Oct"){
+                result.innerHTML = result.textContent.toString(8);
+            } else if (btn.textContent === "Hex"){
+                result.innerHTML = result.textContent.toString(16);
+            } else if (btn.textContent === "Dec"){   
+                result.innerHTML = result.textContent.toString(10);
             }
-            result.innerHTML = btn.textContent;
         } else if (btn.textContent === "C"){
             numbers = []
             operation = null
             result.innerHTML = "0";
         } else if (btn.id === "op"){
             number = result.textContent;
-            numbers.push(parseFloat(number));
-            result.innerHTML = "0";
             
             if (btn.textContent === "Sin"){
                 const seno = Math.sin(number * Math.PI/180);
@@ -42,6 +44,8 @@ boton.forEach((btn) => {
                 const raiz = Math.sqrt(number);
                 result.innerHTML = raiz;
             } else {
+                numbers.push(parseFloat(number));
+                result.innerHTML = "0";
                 operation = btn.textContent;
             }
             
@@ -51,10 +55,12 @@ boton.forEach((btn) => {
             number = result.textContent;
             numbers.push(parseFloat(number));
             result.innerHTML = outputs(operation,numbers);
+            numbers = [];
         }
         function outputs (operation,numbers){
             let expression = numbers.join(operation);
             let total = eval(expression);
+            console.log(expression);
             return total;
         }
     })
